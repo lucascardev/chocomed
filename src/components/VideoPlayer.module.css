@@ -1,0 +1,134 @@
+.playerContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  background-color: var(--cocoa-dark);
+  cursor: pointer;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+.playerContainer:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 103, 75, 0.3);
+  box-shadow: var(--shadow-lg), 0 12px 30px rgba(61, 35, 20, 0.15);
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover Control Panel */
+.controls {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 12px;
+  background: rgba(38, 20, 10, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.playerContainer:hover .controls {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.controlBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.controlBtn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+}
+
+.controlBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Pulsing audio indicator */
+.pulsingBadge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: var(--olive-primary);
+  color: var(--text-light);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 40px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 0 0 rgba(59, 103, 75, 0.7);
+  animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pulsingBadge:hover {
+  background-color: var(--olive-dark);
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 103, 75, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(59, 103, 75, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 103, 75, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    opacity: 1;
+    transform: translateY(0);
+    bottom: 16px;
+    right: 16px;
+    padding: 6px 12px;
+  }
+  .controlBtn {
+    width: 36px;
+    height: 36px;
+  }
+  .pulsingBadge {
+    top: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+}

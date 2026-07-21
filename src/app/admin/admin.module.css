@@ -1,0 +1,187 @@
+.adminContainer {
+  padding: 60px 0;
+}
+
+.loadingContainer {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.forbiddenContainer {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+}
+
+.adminHeader h1 {
+  font-size: 2.5rem;
+  color: var(--cocoa-dark);
+}
+
+.adminHeader p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.dashGrid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+}
+
+/* Sidebar Tab buttons */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-dark);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.tabBtn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--olive-primary);
+}
+
+.tabActive {
+  background-color: var(--cocoa-primary);
+  color: var(--text-light);
+  border-color: var(--cocoa-primary);
+}
+
+.tabActive:hover {
+  background-color: var(--cocoa-dark);
+  color: var(--text-light);
+}
+
+/* Main content */
+.mainContent {
+  position: relative;
+}
+
+.overlayLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(253, 251, 247, 0.6);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--cocoa-primary);
+  backdrop-filter: blur(2px);
+}
+
+/* Tables */
+.tableWrapper {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.table th {
+  background-color: var(--bg-secondary);
+  padding: 12px 16px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--cocoa-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #fcfbf9;
+}
+
+.orderId {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.actionCol {
+  display: flex;
+  gap: 8px;
+}
+
+/* Product Tabs Grid */
+.productTabGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.adminForm {
+  margin-top: 16px;
+}
+
+.productEditList, .recipesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.prodItemRow {
+  background-color: #faf9f6;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .dashGrid {
+    grid-template-columns: 1fr;
+  }
+  .productTabGrid {
+    grid-template-columns: 1fr;
+  }
+}
